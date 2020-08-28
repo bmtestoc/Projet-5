@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.11.0.css">
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.11.0.js"></script>
+    <script src="./main.js"></script>
+    <script src="./liste.js"></script>
+    <script src="./produit.js"></script>
+    <script src="./panier.js"></script>
+    <script src="./commande.js"></script>
+    <script>
+        // convertPrice
+        QUnit.test('convert an input in a string with a comma before the 2 last chars', function(assert) {
+          assert.equal(convertPrice(987654321), "9876543,21", '987654321 => "9876543,21"');
+          assert.equal(convertPrice("string"), 0, '"string" parameter is not an integer');
+          assert.equal(convertPrice(123.45), 0, 'float parameter is not an integer');
+        });
+        // openModal
+         QUnit.test('opens a modal and print text given in parameter in it', function(assert) {
+          assert.equal(openModal(), false, 'returns false because DOM element doesnt exist');
+          assert.equal(openModal('texte exemple'), false, 'returns false because DOM element doesnt exist');
+        });
+        // closeModal
+        QUnit.test('closes an open modal', function(assert) {
+          assert.equal(closeModal(), false, 'returns false because DOM element doesnt exist');
+        });
+        // extractUrlParams
+//        QUnit.test('extract params from URL', function(assert) {
+//          assert.equal(extractUrlParams(), [], 'returns an empty array');
+//        });
+        // ajoutPanier
+//        QUnit.test('add 1 to quantity', function(assert) {
+//          assert.equal(ajoutPanier(), false, 'returns false because DOM element doesnt exist');
+//        });
+//        // retraitPanier
+//        QUnit.test('delete 1 to quantity', function(assert) {
+//          assert.equal(retraitPanier(), [], '- 1');
+//        });
+//        // savePanier
+//        QUnit.test('extract params from URL', function(assert) {
+//          assert.equal(extractUrlParams(), [], 'returns an empty array');
+//        });
+//        // supprPanier
+//        QUnit.test('extract params from URL', function(assert) {
+//          assert.equal(supprPanier(), [], 'returns an empty array');
+//        });
+//        // validationFormulairePanier
+//        QUnit.test('extract params from URL', function(assert) {
+//          assert.equal(extractUrlParams(), [], 'returns an empty array');
+//        });
+//        // saveOrder
+//        QUnit.test('extract params from URL', function(assert) {
+//          assert.equal(extractUrlParams(), [], 'returns an empty array');
+//        });
+      </script>
+  </body>
+</html>
