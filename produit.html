@@ -3,44 +3,49 @@
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link type="text/css" rel="stylesheet" href="css/css_index.css">
         <title>Orinoco</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-<nav>
-    <div class="nav-wrapper">
-      <a href="index.html" class="brand-logo center"><img src="images/orinoco.png" alt="index"></a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="index.html">Cameras vintage</a></li>
-      </ul>
-    </div>
-  </nav>
-<main>
-        <div id="containerModal">
-            <div id="blocModal">
-                <div id="modalClose" onclick="closeModal()"><span class="glyphicon glyphicon-remove"></span></div>
-                <div id="modalCloseOk" onclick="closeModal()"><span class="glyphicon glyphicon-ok"></span></div>
-                <div id="texteModal"></div>
+        <!--Header avec logo Orinoco et menu Cameras vintage-->
+        <nav>
+            <div class="nav-wrapper">
+                <a href="index.html" class="brand-logo center"><img src="images/orinoco.png" alt="index"></a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="index.html">Cameras vintage</a></li>
+                </ul>
             </div>
-        </div>
-        <p class="flow-text"><a href="index.html">Retourner à l'accueil</a></p>
-        <p class="flow-text"><a href="panier.html">Consulter votre panier</a></p>
-        <div id="produit" class="row">
-        </div>
-        <div id="panier">
-            <div>Quantité</div>
-            <span class="glyphicon glyphicon-minus" onClick="retraitPanier()"></span>
-
-            <div id="quantite"></div>
-            <span class="glyphicon glyphicon-plus" onClick="ajoutPanier()"></span>
-            <form> 
-                <input class="btn waves-effect waves-light btn-large" type="button" onClick="savePanier()" value="Ajouter au panier">
-            </form>
-        </div>
+        </nav>
+        <!--Insertion des informations envoyées par produit.js-->
+        <main>
+            <div id="containerModal">
+                <div id="blocModal">
+                    <div id="modalClose" onclick="closeModal()"><span class="glyphicon glyphicon-remove"></span></div>
+                    <div id="modalCloseOk" onclick="closeModal()"><span class="glyphicon glyphicon-ok"></span></div>
+                    <div id="texteModal"></div>
+                </div>
+            </div>
+            <p class="flow-text"><a href="index.html">Retourner à l'accueil</a></p>
+            <p class="flow-text"><a href="panier.html">Consulter votre panier</a></p>
+            <div id="produit" class="row">
+            </div>
+            <div id="panier">
+                <div>Quantité</div>
+                <!--Bouton - qui retire 1 à la quantité-->
+                <span class="glyphicon glyphicon-minus" onClick="retraitPanier()"></span>
+                <div id="quantite"></div>
+                <!--Bouton + qui ajoute 1 à la quantité-->
+                <span class="glyphicon glyphicon-plus" onClick="ajoutPanier()"></span>
+                <!--Bouton "Ajouter au panier"-->
+                <form> 
+                    <input class="btn waves-effect waves-light btn-large" type="button" onClick="savePanier()" value="Ajouter au panier">
+                </form>
+            </div>
         </main>
+        <!--Footer-->
         <footer>
             <div id="footer" class="row">
                 <div id="servGar" class="col s3">

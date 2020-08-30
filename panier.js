@@ -1,12 +1,16 @@
+/*
+ * Récupération des informations contenues dans le sessionStorage. Retourne un tableau.
+ */
 var sessionStorageAdresse = sessionStorage.getItem("adresse");
-
 if (sessionStorageAdresse === null) {
     sessionStorageAdresse = "";
     var adresseTabl = [];
 } else {
     var adresseTabl = sessionStorageAdresse.split(',');
 }
-
+/*
+ * Insertion des informations correspondantes au(x) produit(s)
+ */
 var montantTotal = 0;
 adresseTabl.forEach(function (item) {
     var monProduit = JSON.parse(sessionStorage.getItem(item));
@@ -16,10 +20,12 @@ adresseTabl.forEach(function (item) {
     montantTotal = montantTotal + montantProduit;
 });
 var total = "<div> <h5>" + "Montant des produits : " + convertPrice(montantTotal) + " \u20AC" + "</h5> </div>";
-if(document.querySelector('#quantite') !== null) {
+if (document.querySelector('#quantite') !== null) {
     document.querySelector('#quantite').innerHTML = total;
 }
-
+/*
+ * Calcul des frais de livraison selon le nombre total de produits
+ */
 var quantiteTotale = 0;
 var totalAvecLivraison = 0;
 adresseTabl.forEach(function (item) {
@@ -33,20 +39,25 @@ adresseTabl.forEach(function (item) {
         fraisLivraison = 1500;
     }
 });
-
+/*
+ * Affichage des frais de livraison
+ */
 var fraisLivraison;
 var affichageFraisLivraison = "<div> <h6>" + "Montant des frais de livraison : " + convertPrice(fraisLivraison) + " \u20AC" + "</h6> </div>";
-if(document.querySelector('#affichageLivraison') !== null) {
+if (document.querySelector('#affichageLivraison') !== null) {
     document.querySelector('#affichageLivraison').innerHTML = affichageFraisLivraison;
 }
+/*
+ * Calcul et affichage du montant total de la commande (montant + livraison)
+ */
 var totalAvecLivraison = montantTotal + fraisLivraison;
-
 var totalFinal = "<div> <h5>" + "Montant total de la commande : " + convertPrice(totalAvecLivraison) + " \u20AC" + "</h5> </div>";
-if(document.querySelector('#montantTotal') !== null) {
+if (document.querySelector('#montantTotal') !== null) {
     document.querySelector('#montantTotal').innerHTML = totalFinal;
 }
-
-// Supprime un produit du panier
+/*
+ * Supprime un produit du panier
+ */
 function supprPanier(id) {
     sessionStorage.removeItem(id);
     let adresse = sessionStorage.getItem("adresse");
@@ -66,8 +77,9 @@ function supprPanier(id) {
     }
     document.location.reload(true);
 }
-;
-// Vérifie que tous les champs du formulaire sont remplis
+/*
+ * Vérifie que tous les champs du formulaire sont remplis
+ */
 function validationFormulairePanier() {
     if (document.forms["formulairePanier"].elements["name"].value === "" || document.forms["formulairePanier"].elements["surname"].value === "" || document.forms["formulairePanier"].elements["address"].value === "" || document.forms["formulairePanier"].elements["city"].value === "" || document.forms["formulairePanier"].elements["mail"].value === "") {
         openModal("Vous devez remplir tous les champs du formulaire");
@@ -75,7 +87,9 @@ function validationFormulairePanier() {
         saveOrder();
     }
 }
-// Stocke les informations du panier et du formulaire dans le sessionStorage
+/*
+ * Stocke les informations du panier et du formulaire dans le sessionStorage
+ */
 function saveOrder() {
     var sessionStorageAdresse = sessionStorage.getItem("adresse");
     if (sessionStorageAdresse === null) {
@@ -93,7 +107,6 @@ function saveOrder() {
                     "email": document.forms["formulairePanier"].elements["mail"].value},
         "products": adresseTabl
     };
-
     monObjet = JSON.stringify(monObjet);
     sessionStorage.setItem("formContact", monObjet);
     sessionStorage.setItem("totalAvecLivraison", totalAvecLivraison);

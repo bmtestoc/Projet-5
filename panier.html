@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link type="text/css" rel="stylesheet" href="css/css_index.css">
         <title>Orinoco</title>
         <meta charset="UTF-8">
@@ -11,87 +11,91 @@
         <script src="main.js"></script>
     </head>
     <body>
-<nav>
-    <div class="nav-wrapper">
-      <a href="index.html" class="brand-logo center"><img src="images/orinoco.png" alt="index"></a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="index.html">Cameras vintage</a></li>
-      </ul>
-    </div>
-  </nav>
-<main>
-        <div id="containerModal">
-            <div id="blocModal">
-                <div id="modalClose" onclick="closeModal()"><span class="glyphicon glyphicon-remove"></span></div>
-                <div id="modalCloseOk" onclick="closeModal()"><span class="glyphicon glyphicon-ok"></span></div>
-                <div id="texteModal"></div>
+        <!--Header avec logo Orinoco et menu Cameras vintage-->
+        <nav>
+            <div class="nav-wrapper">
+                <a href="index.html" class="brand-logo center"><img src="images/orinoco.png" alt="index"></a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="index.html">Cameras vintage</a></li>
+                </ul>
             </div>
-        </div>
-        <p class="flow-text"><a href="index.html">Retourner à l'accueil</a></p>
-        <p class="flow-text">Contenu de votre panier</p>
-        <div id="panierRecap" class="row"></div>
-        <div id="montantProduits"></div>
-        <div id="livraison">
-            <p>Tarifs livraison</p>
-            <table class="striped">
-                <thead>
-                    <tr>
-                        <th>Nombre d'articles</th>
-                        <th>Frais de livraison</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>8 €</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>12 €</td>
-                    </tr>
-                    <tr>
-                        <td>3 et plus</td>
-                        <td>15 €</td>
-                    </tr>
-                </tbody>
-                
-            </table>
-            <div id="affichageLivraison"></div>
-        </div>
-        <div id="montantTotal"></div>
-        <div id="formulaire">
-            <p>Veuillez remplir les champs ci-dessous pour passer votre commande (tous les champs sont obligatoires).</p>
-            <form action="commande.html" method="post" id="formulairePanier" onsubmit="return saveOrder()">
-                <div>
-                    <label for="name">Nom :</label>
-                    <input type="text" required id="name" name="user_name" placeholder="Votre nom">
+        </nav>
+        <!--Insertion des informations envoyées par panier.js-->
+        <main>
+            <div id="containerModal">
+                <div id="blocModal">
+                    <div id="modalClose" onclick="closeModal()"><span class="glyphicon glyphicon-remove"></span></div>
+                    <div id="modalCloseOk" onclick="closeModal()"><span class="glyphicon glyphicon-ok"></span></div>
+                    <div id="texteModal"></div>
                 </div>
-                <div>
-                    <label for="surname">Prénom :</label>
-                    <input type="text" required id="surname" name="user_surname" placeholder="Votre prénom">
-                </div>
-                <div>
-                    <label for="address">Adresse :</label>
-                    <input type="text" required id="address" name="user_address" placeholder="Votre rue et numéro de rue">
-                </div>
-                <div>
-                    <label for="codepostal">Code postal :</label>
-                    <input type="text" pattern="[0-9]{5}" required minlength="5" maxlength="5" id="codepostal" name="user_codepostal" placeholder="Votre code postal">
-                </div>
-                <div>
-                    <label for="city">Ville :</label>
-                    <input type="text" required id="city" name="user_city" placeholder="Votre ville">
-                </div>
-                <div>
-                    <label for="mail">E-mail :</label>
-                    <input type="email" required id="mail" name="user_mail" placeholder="Votre adresse mail">
-                </div>
-                <div class="buttonSubmit">
-                    <button class="btn waves-effect waves-light btn-large" type="submit">Valider ma commande</button>
-                </div>
-            </form>
-        </div>
+            </div>
+            <p class="flow-text"><a href="index.html">Retourner à l'accueil</a></p>
+            <p class="flow-text">Contenu de votre panier</p>
+            <div id="panierRecap" class="row"></div>
+            <div id="montantProduits"></div>
+            <!--Tableau des frais de livraison-->
+            <div id="livraison">
+                <p>Tarifs livraison</p>
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre d'articles</th>
+                            <th>Frais de livraison</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>8 €</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>12 €</td>
+                        </tr>
+                        <tr>
+                            <td>3 et plus</td>
+                            <td>15 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="affichageLivraison"></div>
+            </div>
+            <div id="montantTotal"></div>
+            <!--Formulaire : champs et bouton "Valider ma commande"-->
+            <div id="formulaire">
+                <p>Veuillez remplir les champs ci-dessous pour passer votre commande (tous les champs sont obligatoires).</p>
+                <form action="commande.html" method="post" id="formulairePanier" onsubmit="return saveOrder()">
+                    <div>
+                        <label for="name">Nom :</label>
+                        <input type="text" required id="name" name="user_name" placeholder="Votre nom">
+                    </div>
+                    <div>
+                        <label for="surname">Prénom :</label>
+                        <input type="text" required id="surname" name="user_surname" placeholder="Votre prénom">
+                    </div>
+                    <div>
+                        <label for="address">Adresse :</label>
+                        <input type="text" required id="address" name="user_address" placeholder="Votre rue et numéro de rue">
+                    </div>
+                    <div>
+                        <label for="codepostal">Code postal :</label>
+                        <input type="text" pattern="[0-9]{5}" required minlength="5" maxlength="5" id="codepostal" name="user_codepostal" placeholder="Votre code postal">
+                    </div>
+                    <div>
+                        <label for="city">Ville :</label>
+                        <input type="text" required id="city" name="user_city" placeholder="Votre ville">
+                    </div>
+                    <div>
+                        <label for="mail">E-mail :</label>
+                        <input type="email" required id="mail" name="user_mail" placeholder="Votre adresse mail">
+                    </div>
+                    <div class="buttonSubmit">
+                        <button class="btn waves-effect waves-light btn-large" type="submit">Valider ma commande</button>
+                    </div>
+                </form>
+            </div>
         </main>
+        <!--Footer-->
         <footer>
             <div id="footer" class="row">
                 <div id="servGar" class="col s3">

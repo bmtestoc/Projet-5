@@ -1,7 +1,13 @@
+/*
+ * Requête vers l'API
+ */
 var request = new XMLHttpRequest();
 request.onreadystatechange = function () {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
         var response = JSON.parse(this.responseText);
+        /*
+         * Parcours de la réponse de l'API et affichage des produits
+         */
         response.forEach(function (item, key) {
             var prix = convertPrice(item.price);
             const modele = "<div class='produit'> <a href = \"produit.html?id=" + item._id + "\"> <img src='" + item.imageUrl + "'> </a> <h5>" + item.name + "</h5> <h6>" + prix + " \u20AC" + "</h6> </div>";

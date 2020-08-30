@@ -7,12 +7,12 @@
     border-color: #ffe57f;
 }
 #liste_produits {
-     text-align: center;
+    text-align: center;
 }
 .produit {
-float: left;
-width: 33%;
-margin-top: 15px;
+    float: left;
+    width: 33%;
+    margin-top: 15px;
 }
 nav {
     height: 100px;
@@ -36,20 +36,20 @@ body {
 }
 #container {
     min-height: 100%;
-        position: relative;
+    position: relative;
 }
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+}
 
-  main {
+main {
     flex: 1 0 auto;
-  }
+}
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 footer {
     background-color: #ffe57f;
@@ -160,7 +160,7 @@ select {
     border-color: #ffe57f;
 }
 #produitInfos {
-text-align: center;
+    text-align: center;
 }
 #panierRecapInfos img {
     float: left;
@@ -187,53 +187,53 @@ text-align: center;
     width: 30%;
 }
 input::placeholder {
-      color: #9e9e9e;
-      opacity: 1;
+    color: #9e9e9e;
+    opacity: 1;
 }
 /*********************VERSION MOBILE 1*********************/
 @media (min-width:464px) and (max-width:710px) and (orientation: portrait) {
-#liste_produits {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-footer {
-    height: 180px;
-}
-#blocModal {
-    height: 150px;
-    width: 400px;
-}
-#panierRecapInfos p {
-    width: 15%;
-    float: left;
-}
-#panierRecapInfos input {
-    width: 90%;
-    float: left;
-}
+    #liste_produits {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    footer {
+        height: 180px;
+    }
+    #blocModal {
+        height: 150px;
+        width: 400px;
+    }
+    #panierRecapInfos p {
+        width: 15%;
+        float: left;
+    }
+    #panierRecapInfos input {
+        width: 90%;
+        float: left;
+    }
 }
 /*********************VERSION MOBILE 2*********************/
 @media (max-width:463px) and (orientation: portrait) {
-#liste_produits {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-  }
-footer {
-    height: 180px;
-    font-size: 0.75em;
-    width: 460px;
-}
-#footer h6 {
-    font-size: 1.2em;
-}
-#blocModal {
-    height: 160px;
-    width: 220px;
-}
-#panierRecapInfos p {
-    width: 100%;
-    float: left;
-}
+    #liste_produits {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+    footer {
+        height: 180px;
+        font-size: 0.75em;
+        width: 460px;
+    }
+    #footer h6 {
+        font-size: 1.2em;
+    }
+    #blocModal {
+        height: 160px;
+        width: 220px;
+    }
+    #panierRecapInfos p {
+        width: 100%;
+        float: left;
+    }
 }
